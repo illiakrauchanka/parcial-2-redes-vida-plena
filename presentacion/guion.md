@@ -1,6 +1,6 @@
-# Guion de la presentación (≈ 5 minutos)
+# Guion de la presentación (≈ 5–6 minutos)
 
-Unas 750 palabras a ritmo tranquilo. Entre corchetes: cuánto tiempo dedicar a cada diapositiva.
+Unas 800 palabras a ritmo tranquilo. Entre corchetes: cuánto tiempo dedicar a cada diapositiva.
 
 ---
 
@@ -24,26 +24,30 @@ Para la red interna usamos 10.0.0.0/16, que es una red privada de clase A. La di
 
 Tenemos 13 VLAN: una por sector, más servidores, voz, WiFi, invitados y cámaras. La IP indica la VLAN: la VLAN 40 es la red 10.0.4.0. El enrutamiento es estático, sin OSPF ni RIP, porque la red es chica y conocida. El tráfico entre VLAN lo enrutan los switches de núcleo, y para salir a Internet los routers hacen NAT.
 
-**6. WiFi** [30 s]
+**6. Ejemplo: configuración IP de las PC** [25 s]
+
+Acá se ve cómo queda configurada cada PC. El tercer número de la IP coincide con la VLAN dividida por diez: la PC de consultorios, en la VLAN 40, tiene la IP 10.0.4.2 y el gateway 10.0.4.254. Ese gateway es una IP virtual: el SW-CORE1 tiene la .252, el SW-CORE2 la .253, y la .254 la comparten los dos con HSRP.
+
+**7. WiFi** [30 s]
 
 Hay tres redes WiFi. VidaPlena-Staff es para médicos y enfermería: está en la VLAN 90, usa WPA2 con AES y tiene acceso a la red clínica. VidaPlena-BYOD y VidaPlena-Pacientes están en la VLAN 300 y solo salen a Internet. Así un paciente con su celular nunca llega a las historias clínicas.
 
-**7. Telefonía IP** [30 s]
+**8. Telefonía IP** [30 s]
 
 La voz va en su propia VLAN, la 80, separada de los datos. Así la llamada no se corta aunque la red esté cargada. El teléfono tiene un pequeño switch incorporado: la PC se conecta al teléfono y el teléfono al switch. Por un solo cable pasan dos VLAN: la 20 para la PC y la 80 para la voz. Por eso en ese puerto la seguridad permite dos direcciones MAC.
 
-**8. STP** [25 s]
+**9. STP** [25 s]
 
 Como cada switch tiene dos enlaces, se formaría un bucle. El protocolo STP lo evita bloqueando uno de los dos. Si el enlace activo se corta, STP activa el de respaldo automáticamente. El SW-CORE1 es el switch raíz y el SW-CORE2 es su respaldo.
 
-**9. Contornos de la red** [30 s]
+**10. Contornos de la red** [30 s]
 
 La red tiene tres contornos internos y uno externo. El contorno clínico incluye sectores, servidores, voz y WiFi del personal. El de invitados solo tiene acceso a Internet. El de cámaras solo se comunica con gestión y dirección. El externo es Internet, y desde ahí solo entra tráfico de respuesta. Los límites entre contornos son listas de acceso, ACL.
 
-**10. Seguridad** [30 s]
+**11. Seguridad** [30 s]
 
 Además de las ACL, cada puerto acepta un solo equipo: si alguien conecta un equipo ajeno, el puerto se apaga. En el WiFi, DHCP snooping bloquea servidores DHCP falsos. Los equipos se administran por SSH, no por Telnet, porque Telnet manda la contraseña sin cifrar.
 
-**11. Alta disponibilidad** [40 s]
+**12. Alta disponibilidad** [40 s]
 
-Por último, la alta disponibilidad, que era el requisito principal, porque la guardia funciona las 24 horas. Si cae el SW-CORE1, el SW-CORE2 toma el gateway gracias a HSRP. Si se cae el proveedor 1, el router RT-FW baja su prioridad y el RT-FW2 sale por el proveedor 2. Si se corta un cable, STP activa el de respaldo. Las PC no notan nada, porque su gateway siempre es la misma IP virtual, la .254. Muchas gracias. ¿Preguntas?
+Por último, la alta disponibilidad, que era el requisito principal, porque la guardia funciona las 24 horas. Si cae el SW-CORE1, el SW-CORE2 toma el gateway gracias a HSRP. Si se cae el proveedor 1, el router RT-FW baja su prioridad y el RT-FW2 sale por el proveedor 2. Si se corta un cable, STP activa el de respaldo. Las PC no notan nada, porque su gateway siempre es la misma IP virtual, por ejemplo 10.0.4.254 en consultorios. Muchas gracias. ¿Preguntas?
