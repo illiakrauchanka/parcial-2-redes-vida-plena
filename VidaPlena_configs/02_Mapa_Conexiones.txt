@@ -1,0 +1,60 @@
+! Mapa de conexiones - Clinica Vida Plena
+! Origen | Puerto | Destino | Puerto | Cable (UTP Cat 6)
+
+AP-BYOD              Port 0               SW-WIFI              FastEthernet0/2      Cobre directo
+AP-PACIENTES         Port 0               SW-WIFI              FastEthernet0/3      Cobre directo
+AP-STAFF             Port 0               SW-WIFI              FastEthernet0/1      Cobre directo
+CAM-DEPOSITO         FastEthernet0        SW-CCTV              FastEthernet0/8      Cobre directo
+CAM-ESTACIONAMIENTO  FastEthernet0        SW-CCTV              FastEthernet0/9      Cobre directo
+CAM-EXT-ENTRADA      FastEthernet0        SW-CCTV              FastEthernet0/3      Cobre directo
+CAM-INT-ENTRADA      FastEthernet0        SW-CCTV              FastEthernet0/2      Cobre directo
+CAM-MOSTRADOR        FastEthernet0        SW-CCTV              FastEthernet0/5      Cobre directo
+CAM-PASILLO-N        FastEthernet0        SW-CCTV              FastEthernet0/7      Cobre directo
+CAM-SALA-ESPERA      FastEthernet0        SW-CCTV              FastEthernet0/4      Cobre directo
+CAM-SALIDA-EMERG     FastEthernet0        SW-CCTV              FastEthernet0/10     Cobre directo
+IMP-ADMIN            FastEthernet0        SW-PLANTA1           FastEthernet0/14     Cobre directo
+IMP-GUARDIA          FastEthernet0        SW-PLANTA2           FastEthernet0/7      Cobre directo
+IMP-LAB              FastEthernet0        SW-PLANTA2           FastEthernet0/8      Cobre directo
+IMP-RECEPCION        FastEthernet0        SW-PLANTA1           FastEthernet0/13     Cobre directo
+IPPHONE-RECEP        FastEthernet0        SW-PLANTA1           FastEthernet0/15     Cobre directo
+ISP-INTERNET         FastEthernet0/0      RT-FW                FastEthernet0/0      Cobre cruzado
+ISP-INTERNET         FastEthernet0/1      RT-FW2               FastEthernet0/0      Cobre cruzado
+NVR-FRONTAL          FastEthernet0        SW-CCTV              FastEthernet0/1      Cobre directo
+NVR-TRASERO          FastEthernet0        SW-CCTV              FastEthernet0/6      Cobre directo
+PC-ADMIN1            FastEthernet0        SW-PLANTA1           FastEthernet0/5      Cobre directo
+PC-ADMIN2            FastEthernet0        SW-PLANTA1           FastEthernet0/6      Cobre directo
+PC-CONSULT1          FastEthernet0        SW-PLANTA2           FastEthernet0/1      Cobre directo
+PC-CONSULT2          FastEthernet0        SW-PLANTA2           FastEthernet0/2      Cobre directo
+PC-DIR1              FastEthernet0        SW-PLANTA1           FastEthernet0/7      Cobre directo
+PC-DIR2              FastEthernet0        SW-PLANTA1           FastEthernet0/8      Cobre directo
+PC-FARM1             FastEthernet0        SW-PLANTA1           FastEthernet0/3      Cobre directo
+PC-FARM2             FastEthernet0        SW-PLANTA1           FastEthernet0/4      Cobre directo
+PC-GUARDIA1          FastEthernet0        SW-PLANTA2           FastEthernet0/5      Cobre directo
+PC-GUARDIA2          FastEthernet0        SW-PLANTA2           FastEthernet0/6      Cobre directo
+PC-LAB1              FastEthernet0        SW-PLANTA2           FastEthernet0/3      Cobre directo
+PC-LAB2              FastEthernet0        SW-PLANTA2           FastEthernet0/4      Cobre directo
+PC-RECEP1            FastEthernet0        SW-PLANTA1           FastEthernet0/1      Cobre directo
+PC-RECEP2            FastEthernet0        SW-PLANTA1           FastEthernet0/2      Cobre directo
+RT-FW                FastEthernet0/1      SW-CORE1             FastEthernet0/1      Cobre directo
+RT-FW2               FastEthernet0/1      SW-CORE2             FastEthernet0/1      Cobre directo
+SRV-AD-DNS           FastEthernet0        SW-PLANTA1           FastEthernet0/11     Cobre directo
+SRV-BACKUP           FastEthernet0        SW-PLANTA1           FastEthernet0/12     Cobre directo
+SRV-FILES            FastEthernet0        SW-PLANTA1           FastEthernet0/16     Cobre directo
+SRV-HIS              FastEthernet0        SW-PLANTA1           FastEthernet0/9      Cobre directo
+SRV-PACS             FastEthernet0        SW-PLANTA1           FastEthernet0/10     Cobre directo
+SW-CORE1             FastEthernet0/2      SW-PLANTA1           GigabitEthernet0/1   Cobre cruzado
+SW-CORE1             FastEthernet0/3      SW-PLANTA2           GigabitEthernet0/1   Cobre cruzado
+SW-CORE1             FastEthernet0/4      SW-CCTV              GigabitEthernet0/1   Cobre cruzado
+SW-CORE1             FastEthernet0/5      SW-WIFI              GigabitEthernet0/1   Cobre cruzado
+SW-CORE1             GigabitEthernet0/1   SW-CORE2             GigabitEthernet0/1   Cobre cruzado
+SW-CORE1             GigabitEthernet0/2   SW-CORE2             GigabitEthernet0/2   Cobre cruzado
+SW-CORE2             FastEthernet0/2      SW-PLANTA1           GigabitEthernet0/2   Cobre cruzado
+SW-CORE2             FastEthernet0/3      SW-PLANTA2           GigabitEthernet0/2   Cobre cruzado
+SW-CORE2             FastEthernet0/4      SW-CCTV              GigabitEthernet0/2   Cobre cruzado
+SW-CORE2             FastEthernet0/5      SW-WIFI              GigabitEthernet0/2   Cobre cruzado
+
+Total: 51 enlaces cableados
+
+Enlaces inalambricos (802.11n):
+LAPTOP-STAFF         Wireless0            AP-STAFF             Port 1               WPA2-PSK AES
+CEL-PACIENTE         Wireless0            AP-PACIENTES         Port 1               abierto

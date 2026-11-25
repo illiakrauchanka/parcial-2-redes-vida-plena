@@ -1,0 +1,24 @@
+! Tabla de VLAN - Clinica Privada "Vida Plena"
+! VLAN | Nombre | Subred | Gateway (VIP HSRP) | Ubicacion
+
+VLAN 10    Direccion        10.0.1.0/24   10.0.1.254   SW-PLANTA1 Fa0/7-8
+VLAN 20    Recepcion        10.0.2.0/24   10.0.2.254   SW-PLANTA1 Fa0/1-2, Fa0/15 (datos del telefono)
+VLAN 30    Guardia          10.0.3.0/24   10.0.3.254   SW-PLANTA2 Fa0/5-6
+VLAN 40    Consultorios     10.0.4.0/24   10.0.4.254   SW-PLANTA2 Fa0/1-2
+VLAN 50    Laboratorio      10.0.5.0/24   10.0.5.254   SW-PLANTA2 Fa0/3-4
+VLAN 60    Farmacia         10.0.6.0/24   10.0.6.254   SW-PLANTA1 Fa0/3-4
+VLAN 70    Administracion   10.0.7.0/24   10.0.7.254   SW-PLANTA1 Fa0/5-6
+VLAN 80    Voz              10.0.8.0/24   10.0.8.254   SW-PLANTA1 Fa0/15 (voice vlan)
+VLAN 90    WiFi-Staff       10.0.9.0/24   10.0.9.254   SW-WIFI Fa0/1 (AP-STAFF, SSID VidaPlena-Staff WPA2)
+VLAN 100   Servidores       10.0.10.0/24   10.0.10.254   SW-PLANTA1 Fa0/9-12,16; CORE1/CORE2 Fa0/1 (routers)
+VLAN 200   Infraestructura  10.0.20.0/24   10.0.20.254   SW-PLANTA1 Fa0/13-14, SW-PLANTA2 Fa0/7-8, SVI de gestion
+VLAN 300   Invitados        10.0.30.0/24   10.0.30.254   SW-WIFI Fa0/2-3 (AP-BYOD, AP-PACIENTES) - ACL-INVITADOS
+VLAN 400   CCTV             10.0.40.0/24   10.0.40.254   SW-CCTV Fa0/1-10 - ACL-CCTV
+VLAN 999   PARKING          -                -             puertos libres (shutdown) y VLAN nativa de los trunks
+
+Trunks 802.1Q (nativa 999, nonegotiate):
+  SW-CORE1/2 Fa0/2 <-> SW-PLANTA1 Gi0/1 / Gi0/2   VLAN 10,20,60,70,80,100,200
+  SW-CORE1/2 Fa0/3 <-> SW-PLANTA2 Gi0/1 / Gi0/2   VLAN 30,40,50,200
+  SW-CORE1/2 Fa0/4 <-> SW-CCTV    Gi0/1 / Gi0/2   VLAN 200,400
+  SW-CORE1/2 Fa0/5 <-> SW-WIFI    Gi0/1 / Gi0/2   VLAN 90,200,300
+  SW-CORE1 Gi0/1, Gi0/2 <-> SW-CORE2 Gi0/1, Gi0/2      todas las VLAN (STP deja uno en respaldo)

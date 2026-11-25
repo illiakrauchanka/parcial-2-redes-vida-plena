@@ -1,0 +1,80 @@
+! Clinica Privada "Vida Plena" - Direccionamiento IP de equipos finales
+! 37 equipos finales cableados con IP estatica + 2 clientes WiFi por DHCP; mascara 255.255.255.0; DNS 10.0.10.10
+
+=== VLAN 10 - Direccion - 10.0.1.0/24 - gw 10.0.1.254 ===
+  PC-DIR1              10.0.1.2       255.255.255.0   10.0.1.254    10.0.10.10
+  PC-DIR2              10.0.1.3       255.255.255.0   10.0.1.254    10.0.10.10
+
+=== VLAN 20 - Recepcion - 10.0.2.0/24 - gw 10.0.2.254 ===
+  PC-RECEP1            10.0.2.2       255.255.255.0   10.0.2.254    10.0.10.10
+  PC-RECEP2            10.0.2.3       255.255.255.0   10.0.2.254    10.0.10.10
+
+=== VLAN 30 - Guardia - 10.0.3.0/24 - gw 10.0.3.254 ===
+  PC-GUARDIA1          10.0.3.2       255.255.255.0   10.0.3.254    10.0.10.10
+  PC-GUARDIA2          10.0.3.3       255.255.255.0   10.0.3.254    10.0.10.10
+
+=== VLAN 40 - Consultorios - 10.0.4.0/24 - gw 10.0.4.254 ===
+  PC-CONSULT1          10.0.4.2       255.255.255.0   10.0.4.254    10.0.10.10
+  PC-CONSULT2          10.0.4.3       255.255.255.0   10.0.4.254    10.0.10.10
+
+=== VLAN 50 - Laboratorio - 10.0.5.0/24 - gw 10.0.5.254 ===
+  PC-LAB1              10.0.5.2       255.255.255.0   10.0.5.254    10.0.10.10
+  PC-LAB2              10.0.5.3       255.255.255.0   10.0.5.254    10.0.10.10
+
+=== VLAN 60 - Farmacia - 10.0.6.0/24 - gw 10.0.6.254 ===
+  PC-FARM1             10.0.6.2       255.255.255.0   10.0.6.254    10.0.10.10
+  PC-FARM2             10.0.6.3       255.255.255.0   10.0.6.254    10.0.10.10
+
+=== VLAN 70 - Administracion - 10.0.7.0/24 - gw 10.0.7.254 ===
+  PC-ADMIN1            10.0.7.2       255.255.255.0   10.0.7.254    10.0.10.10
+  PC-ADMIN2            10.0.7.3       255.255.255.0   10.0.7.254    10.0.10.10
+
+=== VLAN 80 - Voz - 10.0.8.0/24 - gw 10.0.8.254 ===
+  IPPHONE-RECEP        10.0.8.2       255.255.255.0   10.0.8.254    10.0.10.10
+
+=== VLAN 90 - WiFi-Staff - 10.0.9.0/24 - gw 10.0.9.254 ===
+  (clientes inalambricos por DHCP: CORE1 .10-.129, CORE2 .130-.249)
+  LAPTOP-STAFF         DHCP (SSID VidaPlena-Staff, WPA2-AES, via AP-STAFF)
+
+=== VLAN 100 - Servidores - 10.0.10.0/24 - gw 10.0.10.254 ===
+  SRV-AD-DNS           10.0.10.10     255.255.255.0   10.0.10.254    10.0.10.10
+  SRV-HIS              10.0.10.11     255.255.255.0   10.0.10.254    10.0.10.10
+  SRV-PACS             10.0.10.12     255.255.255.0   10.0.10.254    10.0.10.10
+  SRV-BACKUP           10.0.10.13     255.255.255.0   10.0.10.254    10.0.10.10
+  SRV-FILES            10.0.10.14     255.255.255.0   10.0.10.254    10.0.10.10
+
+=== VLAN 200 - Infraestructura - 10.0.20.0/24 - gw 10.0.20.254 ===
+  IMP-RECEPCION        10.0.20.10     255.255.255.0   10.0.20.254    10.0.10.10
+  IMP-GUARDIA          10.0.20.11     255.255.255.0   10.0.20.254    10.0.10.10
+  IMP-ADMIN            10.0.20.12     255.255.255.0   10.0.20.254    10.0.10.10
+  IMP-LAB              10.0.20.13     255.255.255.0   10.0.20.254    10.0.10.10
+
+=== VLAN 300 - Invitados - 10.0.30.0/24 - gw 10.0.30.254 ===
+  (clientes inalambricos por DHCP: CORE1 .10-.129, CORE2 .130-.249)
+  CEL-PACIENTE         DHCP (SSID VidaPlena-Pacientes, via AP-PACIENTES)
+
+=== VLAN 400 - CCTV - 10.0.40.0/24 - gw 10.0.40.254 ===
+  NVR-FRONTAL          10.0.40.1      255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-INT-ENTRADA      10.0.40.2      255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-EXT-ENTRADA      10.0.40.3      255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-SALA-ESPERA      10.0.40.4      255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-MOSTRADOR        10.0.40.5      255.255.255.0   10.0.40.254    10.0.10.10
+  NVR-TRASERO          10.0.40.50     255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-PASILLO-N        10.0.40.51     255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-DEPOSITO         10.0.40.52     255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-ESTACIONAMIENTO  10.0.40.53     255.255.255.0   10.0.40.254    10.0.10.10
+  CAM-SALIDA-EMERG     10.0.40.54     255.255.255.0   10.0.40.254    10.0.10.10
+
+=== Infraestructura de red ===
+  RT-FW       Fa0/0 203.0.113.2/30   Fa0/1 10.0.10.250/24  HSRP VIP 10.0.10.249
+  RT-FW2      Fa0/0 198.51.100.2/30  Fa0/1 10.0.10.251/24  HSRP VIP 10.0.10.249
+  ISP-INTERNET Fa0/0 203.0.113.1/30  Fa0/1 198.51.100.1/30 Lo0 8.8.8.8/32 (simula Internet)
+  SW-CORE1    SVI 10.0.x.252/24 (HSRP activo, prioridad 110)   VIP 10.0.x.254
+  SW-CORE2    SVI 10.0.x.253/24 (HSRP standby, prioridad 100)  VIP 10.0.x.254
+  SW-PLANTA1  Vlan200 10.0.20.201   SW-PLANTA2 Vlan200 10.0.20.202
+  SW-CCTV     Vlan200 10.0.20.203   SW-WIFI    Vlan200 10.0.20.204
+
+=== Access points (puentes capa 2, sin IP) ===
+  AP-STAFF      SW-WIFI Fa0/1  VLAN 90   SSID VidaPlena-Staff (WPA2-PSK, AES)
+  AP-BYOD       SW-WIFI Fa0/2  VLAN 300  SSID VidaPlena-BYOD
+  AP-PACIENTES  SW-WIFI Fa0/3  VLAN 300  SSID VidaPlena-Pacientes
