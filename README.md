@@ -4,6 +4,8 @@ Segundo Parcial · Comunicaciones y Redes · Escuela Da Vinci · Grupo 01 · Ill
 
 Red para una clínica de 2 plantas: núcleo colapsado redundante (2 × 3560), 4 switches de acceso (2960), 2 routers 2811 con 2 ISP, 13 VLAN, HSRP, Rapid PVST+, ACL, port-security y DHCP snooping. Simulada en Cisco Packet Tracer 9.0.1.
 
+![Diagrama de la red en Packet Tracer](Grupo_01_Diagrama_PT.png)
+
 ## Contenido
 
 | Archivo | Descripción |
