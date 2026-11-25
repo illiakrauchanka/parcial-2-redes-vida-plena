@@ -16,7 +16,7 @@ Red para una clínica de 2 plantas: núcleo colapsado redundante (2 × 3560), 4 
 | `Grupo_01_VidaPlena_Parcial2.pkt` | Topología en Packet Tracer (49 dispositivos) |
 | `Grupo_01_Diagrama_PT.png` | Diagrama de la red |
 | `VidaPlena_configs/` | Configuración IOS de los 9 equipos de red y tablas de VLAN, IP y conexiones |
-| `presentacion/VidaPlena_Presentacion.pdf` | Presentación de 8 diapositivas |
+| `presentacion/VidaPlena_Presentacion.pdf` | Presentación de 9 diapositivas |
 | `presentacion/slides.html` | Fuente HTML de la presentación |
 
 ## Resumen
