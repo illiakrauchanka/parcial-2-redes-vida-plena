@@ -223,12 +223,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
 
 <!-- 6 STP -->
 <section class="s">
-  <div class="top"><span class="n">08</span><h1>STP: Rapid PVST+</h1></div>
+  <div class="top"><span class="n">08</span><h1>STP: enlaces de respaldo sin bucles</h1></div>
   <div class="body">
     <ul class="list">
       <li>Cada switch está conectado a <b>los dos núcleos</b></li>
       <li>STP <b>bloquea un enlace</b> para evitar bucles</li>
-      <li>Si el enlace activo cae, el otro se activa en <b class="o">1–2 segundos</b></li>
+      <li>Si el enlace activo cae, el otro se activa <b class="o">automáticamente</b></li>
       <li>Raíz: <b>SW-CORE1</b> · respaldo: <b>SW-CORE2</b></li>
       <li><b>BPDU Guard</b> en los puertos de usuarios</li>
     </ul>

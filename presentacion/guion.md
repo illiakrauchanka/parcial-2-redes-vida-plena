@@ -34,7 +34,7 @@ La voz va en su propia VLAN, la 80, separada de los datos. Así la llamada no se
 
 **8. STP** [25 s]
 
-Como cada switch tiene dos enlaces, se formaría un bucle. Rapid PVST+ lo evita bloqueando uno de los dos. Si el enlace activo se corta, el de respaldo se activa en uno o dos segundos. El SW-CORE1 es el switch raíz y el SW-CORE2 es su respaldo.
+Como cada switch tiene dos enlaces, se formaría un bucle. El protocolo STP lo evita bloqueando uno de los dos. Si el enlace activo se corta, STP activa el de respaldo automáticamente. El SW-CORE1 es el switch raíz y el SW-CORE2 es su respaldo.
 
 **9. Contornos de la red** [30 s]
 
