@@ -6,6 +6,8 @@ Red para una clínica de 2 plantas: núcleo colapsado redundante (2 × 3560), 4 
 
 ![Diagrama de la red en Packet Tracer](Grupo_01_Diagrama_PT.png)
 
+📊 **Presentación:** [VidaPlena_Presentacion.pdf](presentacion/VidaPlena_Presentacion.pdf)
+
 ## Contenido
 
 | Archivo | Descripción |
