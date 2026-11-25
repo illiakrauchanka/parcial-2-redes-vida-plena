@@ -4,9 +4,15 @@ Segundo Parcial · Comunicaciones y Redes · Escuela Da Vinci · Grupo 01 · Ill
 
 Red para una clínica de 2 plantas: núcleo colapsado redundante (2 × 3560), 4 switches de acceso (2960), 2 routers 2811 con 2 ISP, 13 VLAN, HSRP, Rapid PVST+, ACL, port-security y DHCP snooping. Simulada en Cisco Packet Tracer 9.0.1.
 
+![Esquema de la red](presentacion/esquema_red.png)
+
+📊 **Presentación:** [VidaPlena_Presentacion.pdf](presentacion/VidaPlena_Presentacion.pdf) · 🎤 **Guion (5 min):** [guion.md](presentacion/guion.md)
+
+<details><summary>Diagrama completo en Packet Tracer</summary>
+
 ![Diagrama de la red en Packet Tracer](Grupo_01_Diagrama_PT.png)
 
-📊 **Presentación:** [VidaPlena_Presentacion.pdf](presentacion/VidaPlena_Presentacion.pdf)
+</details>
 
 ## Contenido
 
@@ -14,9 +20,11 @@ Red para una clínica de 2 plantas: núcleo colapsado redundante (2 × 3560), 4 
 |---|---|
 | `Grupo_01_Parcial2.pdf` / `.docx` | Documento completo de la propuesta |
 | `Grupo_01_VidaPlena_Parcial2.pkt` | Topología en Packet Tracer (49 dispositivos) |
-| `Grupo_01_Diagrama_PT.png` | Diagrama de la red |
+| `Grupo_01_Diagrama_PT.png` | Diagrama completo en Packet Tracer |
 | `VidaPlena_configs/` | Configuración IOS de los 9 equipos de red y tablas de VLAN, IP y conexiones |
-| `presentacion/VidaPlena_Presentacion.pdf` | Presentación de 9 diapositivas |
+| `presentacion/VidaPlena_Presentacion.pdf` | Presentación de 10 diapositivas |
+| `presentacion/guion.md` | Texto para presentar en 5 minutos |
+| `presentacion/esquema_red.png` | Esquema simplificado de la red |
 | `presentacion/slides.html` | Fuente HTML de la presentación |
 
 ## Resumen

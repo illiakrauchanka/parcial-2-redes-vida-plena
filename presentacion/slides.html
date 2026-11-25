@@ -46,6 +46,17 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
 .fail .x { width: 420px; background: var(--orangeL); color: #8A3E0E; font-weight: 700; padding: 22px 26px; border-radius: 14px; }
 .fail .ar { width: 80px; text-align: center; font-size: 40px; color: #9AA6B1; }
 .fail .ok { flex: 1; background: var(--tealL); color: #0F4C58; font-weight: 700; padding: 22px 26px; border-radius: 14px; }
+.topo { position: relative; width: 1136px; height: 520px; }
+.topo svg { position: absolute; left: 0; top: 0; }
+.dev { position: absolute; background: #fff; border: 3px solid var(--navy); border-radius: 12px; text-align: center; font-weight: 700; font-size: 21px; padding: 7px 4px; line-height: 1.15; }
+.dev small { display: block; font-weight: 400; font-size: 17px; color: var(--mut); }
+.dev.core { background: var(--navy); color: #F4F6F5; } .dev.core small { color: #BFD0DA; }
+.dev.acc { border-color: var(--teal); }
+.lab { position: absolute; font-size: 18px; color: var(--mut); white-space: nowrap; }
+.lab.hs { background: var(--orangeL); color: #8A3E0E; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.who { position: absolute; top: 446px; width: 228px; font-size: 18px; line-height: 1.3; text-align: center; color: var(--ink); }
+.who b { color: var(--teal); }
+.legend { position: absolute; right: 0; top: 0; font-size: 18px; color: var(--mut); line-height: 1.7; }
 .note { margin-top: auto; font-size: 23px; color: var(--mut); border-left: 5px solid var(--orange); padding: 6px 18px; }
 </style></head><body>
 
@@ -63,12 +74,56 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
     <div class="floor"><span class="tag">Planta clínica</span><span class="txt">Guardia · Consultorios · Laboratorio</span></div>
     <p class="note">14 PC · 5 servidores · 4 impresoras · 8 cámaras + 2 NVR · 1 teléfono IP</p>
   </div>
-  <span class="foot">1 / 9</span>
+  <span class="foot">1 / 10</span>
+</section>
+
+<!-- Esquema -->
+<section class="s">
+  <div class="top"><span class="n">02</span><h1>Esquema de la red</h1></div>
+  <div class="body" style="padding-top:26px">
+    <div class="topo">
+      <svg width="1136" height="520" viewBox="0 0 1136 520" aria-label="Topología">
+        <g stroke="#14213D" stroke-width="3" fill="none">
+          <line x1="568" y1="52" x2="370" y2="104"/><line x1="568" y1="52" x2="766" y2="104"/>
+          <line x1="370" y1="160" x2="370" y2="214"/><line x1="766" y1="160" x2="766" y2="214"/>
+          <line x1="470" y1="236" x2="666" y2="236"/><line x1="470" y1="256" x2="666" y2="256"/>
+        </g>
+        <g stroke="#1F7A8C" stroke-width="3" fill="none">
+          <line x1="370" y1="278" x2="120" y2="374"/><line x1="370" y1="278" x2="412" y2="374"/>
+          <line x1="370" y1="278" x2="704" y2="374"/><line x1="370" y1="278" x2="996" y2="374"/>
+        </g>
+        <g stroke="#E07A2F" stroke-width="3" stroke-dasharray="9 7" fill="none">
+          <line x1="766" y1="278" x2="120" y2="374"/><line x1="766" y1="278" x2="412" y2="374"/>
+          <line x1="766" y1="278" x2="704" y2="374"/><line x1="766" y1="278" x2="996" y2="374"/>
+        </g>
+      </svg>
+      <div class="dev" style="left:468px;top:0;width:200px">Internet<small>ISP 1 · ISP 2</small></div>
+      <span class="lab" style="left:380px;top:58px">ISP 1</span>
+      <span class="lab" style="left:712px;top:58px">ISP 2</span>
+      <div class="dev" style="left:270px;top:104px;width:200px">RT-FW<small>router 2811</small></div>
+      <div class="dev" style="left:666px;top:104px;width:200px">RT-FW2<small>router 2811</small></div>
+      <span class="lab hs" style="left:482px;top:118px">HSRP .249</span>
+      <div class="dev core" style="left:270px;top:214px;width:200px">SW-CORE1<small>3560 · activo</small></div>
+      <div class="dev core" style="left:666px;top:214px;width:200px">SW-CORE2<small>3560 · respaldo</small></div>
+      <span class="lab" style="left:522px;top:204px">2 trunks</span>
+      <span class="lab hs" style="left:482px;top:268px">HSRP .254</span>
+      <div class="dev acc" style="left:10px;top:374px;width:220px">SW-PLANTA1<small>2960</small></div>
+      <div class="dev acc" style="left:302px;top:374px;width:220px">SW-PLANTA2<small>2960</small></div>
+      <div class="dev acc" style="left:594px;top:374px;width:220px">SW-CCTV<small>2960</small></div>
+      <div class="dev acc" style="left:886px;top:374px;width:220px">SW-WIFI<small>2960</small></div>
+      <p class="who" style="left:6px;margin:0"><b>Planta baja</b><br>Recepción, Farmacia, Admin., Dirección, Servidores, Voz</p>
+      <p class="who" style="left:298px;margin:0"><b>Planta clínica</b><br>Guardia, Consultorios, Laboratorio</p>
+      <p class="who" style="left:590px;margin:0"><b>VLAN 400</b><br>8 cámaras + 2 NVR</p>
+      <p class="who" style="left:882px;margin:0"><b>VLAN 90 / 300</b><br>3 access points WiFi</p>
+      <div class="legend"><span style="color:#1F7A8C">━━</span> enlace activo<br><span style="color:#E07A2F">╍╍</span> respaldo (STP)</div>
+    </div>
+  </div>
+  <span class="foot">2 / 10</span>
 </section>
 
 <!-- 2 -->
 <section class="s">
-  <div class="top"><span class="n">02</span><h1>Redes A / B / C y asignación de IP</h1></div>
+  <div class="top"><span class="n">03</span><h1>Redes A / B / C y asignación de IP</h1></div>
   <div class="body">
     <div class="net"><span class="ip">10.0.0.0/16</span><span class="cl"><span class="pill pA">Clase A</span></span><span>Red interna (privada)</span></div>
     <div class="net"><span class="ip">203.0.113.0/30<br>198.51.100.0/30</span><span class="cl"><span class="pill pT">Clase C</span></span><span>Enlaces a los 2 ISP</span></div>
@@ -78,12 +133,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
       <div class="card"><h2>DHCP</h2><p>Solo clientes WiFi. Lo entregan los 2 núcleos</p></div>
     </div>
   </div>
-  <span class="foot">2 / 9</span>
+  <span class="foot">3 / 10</span>
 </section>
 
 <!-- 3 -->
 <section class="s">
-  <div class="top"><span class="n">03</span><h1>VLAN y enrutamiento</h1></div>
+  <div class="top"><span class="n">04</span><h1>VLAN y enrutamiento</h1></div>
   <div class="body">
     <ul class="list">
       <li><b>13 VLAN</b>: una por sector + servidores, voz, WiFi, invitados, cámaras</li>
@@ -93,12 +148,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
       <li><b>NAT</b> en los routers para salir a Internet</li>
     </ul>
   </div>
-  <span class="foot">3 / 9</span>
+  <span class="foot">4 / 10</span>
 </section>
 
 <!-- 4 WiFi -->
 <section class="s">
-  <div class="top"><span class="n">04</span><h1>WiFi: 3 access points, 2 redes</h1></div>
+  <div class="top"><span class="n">05</span><h1>WiFi: 3 access points, 2 redes</h1></div>
   <div class="body">
     <div class="cards">
       <div class="card" style="border-top:8px solid var(--teal)">
@@ -122,12 +177,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
     </div>
     <p class="note">Los AP se conectan a SW-WIFI · IP por <b>DHCP</b> · <b>DHCP snooping</b> bloquea servidores DHCP falsos</p>
   </div>
-  <span class="foot">4 / 9</span>
+  <span class="foot">5 / 10</span>
 </section>
 
 <!-- 5 VoIP -->
 <section class="s">
-  <div class="top"><span class="n">05</span><h1>Telefonía IP: VLAN 80 de voz</h1></div>
+  <div class="top"><span class="n">06</span><h1>Telefonía IP: VLAN 80 de voz</h1></div>
   <div class="body">
     <div class="flow" style="margin:34px 0 46px">
       <div class="node">PC<small>VLAN 20 · datos</small></div>
@@ -139,15 +194,15 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
     <ul class="list">
       <li>Voz separada de datos: <b>la llamada no se corta</b> si la red está cargada</li>
       <li>Subred <b>10.0.8.0/24</b> · teléfono 10.0.8.2 · gateway .254</li>
-      <li>El puerto acepta <b>2 equipos</b>: teléfono + PC</li>
+      <li>La PC se conecta <b>al teléfono</b>, no al switch: port-security permite <b>2 MAC</b> en ese puerto</li>
     </ul>
   </div>
-  <span class="foot">5 / 9</span>
+  <span class="foot">6 / 10</span>
 </section>
 
 <!-- 6 STP -->
 <section class="s">
-  <div class="top"><span class="n">06</span><h1>STP: Rapid PVST+</h1></div>
+  <div class="top"><span class="n">07</span><h1>STP: Rapid PVST+</h1></div>
   <div class="body">
     <ul class="list">
       <li>Cada switch está conectado a <b>los dos núcleos</b></li>
@@ -157,12 +212,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
       <li><b>BPDU Guard</b> en los puertos de usuarios</li>
     </ul>
   </div>
-  <span class="foot">6 / 9</span>
+  <span class="foot">7 / 10</span>
 </section>
 
 <!-- 7 Contornos -->
 <section class="s">
-  <div class="top"><span class="n">07</span><h1>Contornos de la red: 3 internos + 1 externo</h1></div>
+  <div class="top"><span class="n">08</span><h1>Contornos de la red: 3 internos + 1 externo</h1></div>
   <div class="body">
     <div class="cards">
       <div class="card" style="border-top:8px solid var(--teal)">
@@ -192,12 +247,12 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
     </div>
     <p class="note">Los límites entre contornos son ACL: ACL-INVITADOS y ACL-CCTV en el núcleo, ACL-WAN-IN en los routers</p>
   </div>
-  <span class="foot">7 / 9</span>
+  <span class="foot">8 / 10</span>
 </section>
 
 <!-- 8 Seguridad -->
 <section class="s">
-  <div class="top"><span class="n">08</span><h1>Seguridad</h1></div>
+  <div class="top"><span class="n">09</span><h1>Seguridad</h1></div>
   <div class="body">
     <ul class="list">
       <li><b>Invitados</b>: solo Internet, sin acceso a la red clínica</li>
@@ -207,19 +262,19 @@ b.o { color: var(--orange); } b.t { color: var(--teal); }
       <li><b>SSH</b> en lugar de Telnet · WiFi del personal con <b>WPA2-AES</b></li>
     </ul>
   </div>
-  <span class="foot">8 / 9</span>
+  <span class="foot">9 / 10</span>
 </section>
 
 <!-- 8 HA -->
 <section class="s">
-  <div class="top"><span class="n">09</span><h1>Alta disponibilidad y failover</h1></div>
+  <div class="top"><span class="n">10</span><h1>Alta disponibilidad y failover</h1></div>
   <div class="body">
     <div class="fail"><span class="x">Cae SW-CORE1</span><span class="ar">→</span><span class="ok">SW-CORE2 toma el gateway (HSRP)</span></div>
     <div class="fail"><span class="x">Cae Internet (ISP 1)</span><span class="ar">→</span><span class="ok">RT-FW2 sale por el ISP 2 (HSRP)</span></div>
     <div class="fail"><span class="x">Cae un cable</span><span class="ar">→</span><span class="ok">STP activa el de respaldo</span></div>
     <p class="note">Las PC no notan el cambio: el gateway siempre es la misma IP virtual (.254)</p>
   </div>
-  <span class="foot">9 / 9</span>
+  <span class="foot">10 / 10</span>
 </section>
 
 </body></html>
